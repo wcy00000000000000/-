@@ -1,0 +1,22 @@
+CREATE DATABASE todo_list;
+
+USE todo_list;
+
+CREATE TABLE users (
+  name VARCHAR(30) NOT NULL,
+  password VARCHAR(30) NOT NULL,
+  PRIMARY KEY (name)
+);
+
+CREATE TABLE items (
+  id INT NOT NULL AUTO_INCREMENT,
+  user VARCHAR(30) NULL,
+  start DATETIME NULL,
+  end DATETIME NULL,
+  label VARCHAR(45) NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user)
+    REFERENCES users (name)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);

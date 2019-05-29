@@ -1,0 +1,19 @@
+module item{
+    struct Item {
+        long id;
+        string start;
+        string end;
+        string label;
+    };
+
+    typedef sequence<Item> ItemList;
+
+    interface TodoList{
+        attribute ItemList itemList;
+        attribute string userName;
+        boolean add(in Item item);
+        ItemList query(in string start, in string end);
+        boolean delete(in string id);
+        boolean clear();
+    };
+};
